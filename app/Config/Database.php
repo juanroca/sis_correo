@@ -30,6 +30,29 @@ class Database extends Config
      *
      * @var array
      */
+    /*CONFIGURACIÓN PARA MySQL*/
+    public $default = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'sis_correo',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];
+
+    /*
+    /*CONFIGURACIÓN PARA POSTGRES
     public $default = [
         'DSN'      => 'pgsql:host=localhost;port=5432;dbname=sis_furrielato;user=postgres;password=mandis',
         'hostname' => 'localhost',
@@ -48,7 +71,7 @@ class Database extends Config
         'strictOn' => false,
         'failover' => [],
         'port'     => 5432,
-    ];
+    ];*/
 
     /**
      * This database connection is used when

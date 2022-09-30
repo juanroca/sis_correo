@@ -1,10 +1,17 @@
-<footer class="footer">
-  <strong>Copyright &copy; 2021 <a href="https://tego.net">TEGO_SOFT</a>.</strong>
-  Todos los derechos reservados.
-  <div class="float-right d-none d-sm-inline-block">
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+    <a href="/"> tego.com</a>
+    <div class="float-right d-none d-sm-inline-block">
     <b>Version</b> 2.0
   </div>
+  </div>
+  <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
 
 <!-- Control Sidebar -->
 

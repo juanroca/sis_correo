@@ -8,10 +8,6 @@ class MUsuario extends Model{
     protected $returnType = 'array';    
     protected $allowedFields = [
         'estado',
-        'dpto',
-        'provincia',
-        'municipio',
-        'unidad',
 
         'grado_usu',
         'nombres_usu',
@@ -19,20 +15,33 @@ class MUsuario extends Model{
         'materno_usu',
         'ci_usu',
         'telefono_usu',
+        'unidad_usu',
         'login_usu',
         'password',
         'rol_usu',
 
-        'crear',
+        'crea_usu',
         'fecha_crea',
-        'hora_crea',
-        'editar',
+        'edit_usu',
         'fecha_edi',
-        'hora_edi',
-        'eliminar',
+        'elimina_usu',
         'fecha_eli',
-        'hora_eli',
         ];
+
+        public function lista_usuarios(){
+            $this->select('*');
+            $this->where('estado', 'ACTIVO');
+            $this->orderBy('id_usuario', 'ASC');
+            $resultado=$this->findAll();
+            return $resultado;        
+        }
+
+        public function info_usuario($idUsuario){
+            $this->select('*');
+            $this->where('id_usuario', $idUsuario);
+            $resultado=$this->first();
+            return $resultado;
+        }
 
         public function contar_u_admin(){
             $this->select('*');
@@ -60,12 +69,6 @@ class MUsuario extends Model{
         //var_dump($datos);
         $this->select('*');
         $this->where('login_usu', $datos['usuario']);
-        $resultado=$this->first();
-        return $resultado;
-    }
-    public function info_usuario($idUsuario){
-        $this->select('*');
-        $this->where('id_usuario', $idUsuario);
         $resultado=$this->first();
         return $resultado;
     }

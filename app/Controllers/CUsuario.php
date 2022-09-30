@@ -10,7 +10,7 @@ class CUsuario extends BaseController
 {
     public function index(){
         $usuarioModel=new MUsuario();
-        $usuario=array('lista_usuarios'=>$usuarioModel->findAll());
+        $usuario=array('lista_usuarios'=>$usuarioModel->lista_usuarios());
         echo view('header');
         echo view('asideUsuario');
         echo view('/usuario/VUsuario',$usuario);
@@ -29,7 +29,10 @@ class CUsuario extends BaseController
     }
 
     function FRegUsuario(){
-        echo view('usuario/FRegistroUsuario');
+        echo view('header');
+        echo view('asideUsuario');
+        echo view('/usuario/FRegistroUsuario');
+		echo view('footer');
     }
 
     function RegistroUsuario(){
@@ -47,11 +50,9 @@ class CUsuario extends BaseController
         $telefUsuario=trim($_POST['telefono']);
         $unidad=strtoupper(trim($_POST['unidad']));
                 
-        $data=array(
-            'fecha_usu'=>$fechaActual,
-            'login_usu'=>$usuario,
-            'password'=>$password,
-            'rol_usu'=>$rol,
+        $data=array(  
+            'estado' => 'ACTIVO',          
+            
             'grado_usu'=>$grado,
             'nombres_usu'=>$nombres,
             'paterno_usu'=>$apPaterno,
@@ -59,9 +60,15 @@ class CUsuario extends BaseController
             'ci_usu'=>$ci,
             'telefono_usu'=>$telefUsuario,
             'unidad_usu'=>$unidad,
-            /*'autor_usu'=>$,
-            'edit_usu'=>$editor,*/
-            'fecha_edit_usu'=>$fechaActual,            
+
+            'login_usu'=>$usuario,
+            'password'=>$password,
+            'rol_usu'=>$rol,
+
+            'crea_usu'=> session('usuario'),
+            'fecha_crea'=>$fechaActual,
+            /*'edit_usu'=>$editor,
+            'fecha_edit_usu'=>$fechaActual,*/            
         );
         $usuarioModel->insert($data);
     }
@@ -78,8 +85,14 @@ class CUsuario extends BaseController
     function EliminarUsuario(){
         $usuarioModel=new MUsuario();
         $id_usuario=$this->request->uri->getSegment(3);
-        $usuarioModel->delete($id_usuario);
-        echo "<center class='alert alert-success' style='width:350px;'>REGISTRO DE USUARIO ELIMINADO</center>";
+        $fechaActual = date('Y-m-d');
+
+        $data = array(
+            'estado' => 'ELIMINADO',                 //entre '' va el nombre del campo de la Base de Datos
+            'elimina_usu' => session('usuario'),
+            'fecha_eli' => $fechaActual,
+        );
+        $usuarioModel->update($id_usuario, $data); //update actualiza los datos del id_tic
     }
 
     function FEdiUsaurio(){
@@ -114,8 +127,8 @@ class CUsuario extends BaseController
             'ci_usu'=>$ci,
             'telefono_usu'=>$telefUsuario,
             'unidad_usu'=>$unidad,
-            /*'autor_usu'=>$autor,
-            'edit_usu'=>$editor,*/
+
+            'edit_usu'=> session('usuario'),
             'fecha_edit_usu'=>$fechaActual, 
         );
         $usuarioModel->update($id_usuario, $data);

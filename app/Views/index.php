@@ -19,7 +19,7 @@
   <div id="back"></div>
 <div class="login-box">
   <div class="login-logo">
-    <img src="<?php echo base_url();?>/assest/img/logo_furrielato1.png" width="80%">
+    <img src="<?php echo base_url();?>/assest/img/logo_correo.png" width="80%">
   </div>
 <!-- cargar la función session -->
   <?= session('msg')?>

@@ -3,6 +3,7 @@ forEach($lista_usuarios as $usuario){
 
 $id_usuario=$usuario['id_usuario'];
 $loginUsuario=$usuario['login_usu'];
+$tipoRol=$usuario['rol_usu'];
 $pass=$usuario['password'];
 $grado=$usuario['grado_usu'];
 $nombres=$usuario['nombres_usu'];
@@ -16,10 +17,10 @@ $unidad=$usuario['unidad_usu'];
 <tr>
         <td><?php echo $id_usuario;?></td>
         <td><?php echo $loginUsuario;?></td>
+        <td><?php echo $tipoRol;?></td>
         <td><?php echo $grado;?></td>
         <td><?php echo $nombres." ".$apPaterno." ".$apMaterno;?></td>
         <td><?php echo $ci;?></td>
-        <td><?php echo $telefUsuario;?></td>
         <td><?php echo $unidad;?></td>
     
     <td>

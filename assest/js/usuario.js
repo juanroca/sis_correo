@@ -27,7 +27,7 @@ function MVerUsuario(id){
 }
 
 //funcion abrir el Modal Registro Usuario
-function MNuevoUsuario(){
+/*function MNuevoUsuario(){
     $('#modal-lg').modal('show');
     var obj="";
     $.ajax(
@@ -40,7 +40,7 @@ function MNuevoUsuario(){
             }
         }
     )
-}
+}*/
 //Registro Usurio nuevo
 function RegUsuario(){
     var pass=document.getElementById("password").value; //extraemos el dato de password
@@ -50,22 +50,20 @@ function RegUsuario(){
     $.ajax(
         {
             type:"POST",
-            url:host+"index.php/CUsuario/RegistroUsuario",
+            url:host+"RegistroUsuario",
             data:formData,
             cache:false,//Si se establece en falso, obligará a que el navegador no almacene en caché las páginas
             contentType:false,//tipo de datos que estas enviando, poner false para que no establezca el tipo de datos por default
             processData:false, //pasa los datos como objeto, si se envia un DOM, se debe establecer en false
-            success:function(){
-                $('#mensaje').html("<center class='alert alert-success' style='width:350px;'>Nuevo usuario registrado..!!</center>");
+            complete : function(data) {
                 setTimeout(
-                    function(){
-                        $('#modal-lg').modal('hide');
-                    },1000);
-
+                    function () {
+                        alert('USUARIO REGISTRADO CORRECTAMENTE..!!');
+                    });
                 setTimeout(
-                    function(){
-                        location.reload();
-                    },1000);
+                    function () {
+                        location.href ="./";
+                    }, 500);
             },
             error:function(){
 
@@ -102,11 +100,11 @@ function EliUsuario(id){
             url:host+"index.php/CUsuario/EliminarUsuario/"+id,
             data:obj,
             success:function(data){
-                $("#respuesta_sm").html(data);
+                alert('USUARIO ELIMINADO CORRECTAMENTE..!!');
                 setTimeout(
                     function(){
                         $('#modal-df').modal('hide');
-                    },500);
+                    },100);
 
                 setTimeout(
                     function(){
@@ -145,16 +143,16 @@ function EditUsuario(id){
             contentType:false,
             processData:false,
             success:function(){
-                $('#mensaje').html("<center class='alert alert-success' style='width:350px;'>Usuario actualizado</center>");
+                alert('DATOS DEL USUARIO ACTUALIZADOS CORRECTAMENTE...!!!');
                 setTimeout(
                     function(){
                         $('#modal-lg').modal('hide');
-                    },1000);
+                    },100);
 
                 setTimeout(
                     function(){
                         location.reload();
-                    },1000);
+                    },500);
                 }
         }
         )

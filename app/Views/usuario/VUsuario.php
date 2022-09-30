@@ -34,7 +34,7 @@
                    <!-- <th>Telefono</th> -->
                    <th>Unidad</th>
                    <th style="width: 40px">
-                     <button class="btn btn-block btn-primary" onclick="MNuevoUsuario();">Nuevo</button>
+                     <a class="btn btn-block btn-primary" href="<?php echo base_url(); ?>/CUsuario/FRegUsuario">Nuevo</a>
                    </th>
                  </tr>
                </thead>
