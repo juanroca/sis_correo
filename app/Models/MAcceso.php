@@ -16,7 +16,7 @@ class MAcceso extends Model{
         'fecha_crea',
         'edit_usu',
         'fecha_edi',
-        'elimina_usu',
+        'eli_usu',
         'fecha_eli',
         ];
 

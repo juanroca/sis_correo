@@ -12,6 +12,9 @@
       <a href="<?php echo base_url(); ?>/CUsuario" class="btn btn-info btn-lg" role="button" data-bs-toggle="button">ADMINISTRAR USUARIOS</a>                
       </div>
       <div class="btn-group">
+      <a href="<?php echo base_url(); ?>/CFuncionario" class="btn btn-info btn-lg" role="button" data-bs-toggle="button">ADMINISTRAR FUNCIONARIOS</a>                
+      </div>
+      <div class="btn-group">
       <a href="<?php echo base_url(); ?>/CInicioEpi" class="btn btn-info btn-lg" role="button" data-bs-toggle="button">REGISTRO OFICINAS</a>
       </div>
       <div class="btn-group">
