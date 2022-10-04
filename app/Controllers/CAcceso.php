@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\MUsuario;
+use App\Models\MAcceso;
 use Mpdf\Tag\Footer;
 
 class CAcceso extends BaseController
@@ -13,7 +13,7 @@ class CAcceso extends BaseController
 	}
 
 	public function acceder(){
-		$loginModel=new MUsuario(); //crear instancia de MUsuario
+		$loginModel=new MAcceso(); //crear instancia de MAcceso
 		
 		//Validación de usuario y contraseña
 		if (!$this->validate(	
@@ -33,8 +33,8 @@ class CAcceso extends BaseController
 			//"password"=>$password
 		);
 
-		//instanciamos la clase modelo MUsuario
-		$modelo=new MUsuario();
+		//instanciamos la clase modelo MAcceso
+		$modelo=new MAcceso();
 		$consulta=$modelo->ingresar($dato);
 		//var_dump($consulta);
 		

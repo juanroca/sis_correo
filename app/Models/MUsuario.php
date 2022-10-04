@@ -4,18 +4,11 @@ use CodeIgniter\Model;
 
 class MUsuario extends Model{
     protected $table = 'usuario';
-    protected $primaryKey = 'id_usuario';
+    protected $primaryKey = 'id_user';
     protected $returnType = 'array';    
     protected $allowedFields = [
         'estado',
-
-        'grado_usu',
-        'nombres_usu',
-        'paterno_usu',
-        'materno_usu',
         'ci_usu',
-        'telefono_usu',
-        'unidad_usu',
         'login_usu',
         'password',
         'rol_usu',
@@ -24,14 +17,14 @@ class MUsuario extends Model{
         'fecha_crea',
         'edit_usu',
         'fecha_edi',
-        'elimina_usu',
+        'eli_usu',
         'fecha_eli',
         ];
 
         public function lista_usuarios(){
             $this->select('*');
             $this->where('estado', 'ACTIVO');
-            $this->orderBy('id_usuario', 'ASC');
+            $this->orderBy('id_user', 'ASC');
             $resultado=$this->findAll();
             return $resultado;        
         }

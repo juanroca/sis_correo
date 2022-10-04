@@ -1,62 +1,56 @@
  <script src="<?php echo base_url(); ?>/assest/js/funcionario.js"></script>
- <!-- Content Wrapper. Contains page content -->
- <!-- Main content -->
- <section class="content">
-   <div class="container-fluid">
-     <div class="row">
-       <div class="col-md-12">
-         <div class="card">
-           <div class="card-header">
-             <h3 class="card-title">LISTA FUNCIONARIOS</h3>
-             <div class="card-tools">
-               <div class="input-group input-group-sm" style="width: 200px;">
-                 <input type="text" name="" id="" class="form-control float-right" placeholder="Carnet o nombre" onkeyup="BuscarUsuario(document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase());">
+<!-- Content Wrapper. Contains page content -->
+<div class="container-fluid">
+   <!-- Content Header (Page header) -->
+   <section class="content-header">
+     <div class="container-fluid">
 
-                 <div class="input-group-append">
-                   <button type="submit" class="btn btn-default">
-                     <i class="fas fa-search"></i>
-                   </button>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <!-- /.card-header -->
-           <div class="card-body">
-             <table class="table table-bordered">
-               <thead>
-                 <tr>
+     </div><!-- /.container-fluid -->
+   </section>
+
+   <!-- Main content -->
+   <section class="content">
+     <div class="card">
+      <div class="card-header card-header text-white bg-success mb-3">
+         <h3 class="card-title">FUNCIONARIOS REGISTRADOS</h3>
+      </div>
+       <!-- /.card-header -->
+       <div class="card-body p-0">
+         <table id="dataTableFuncionarios" class="table" role="grid" aria-describedby="example2_info">
+               <thead class="table-success">
+                 <tr class="table-success">
                    <th style="width: 10px">CI</th>
                    <th>Grado</th>
                    <th>Nombre completo</th>
-                   <th>Cargo</th>
+                   <th>Unidad</th>
                    <th>Oficina</th>
                    <th>Telefono</th>
                    <th style="width: 40px">
-                     <a class="btn btn-block btn-primary" href="<?php echo base_url(); ?>/CFunionario/FRegFuncionario">Nuevo</a>
+                     <a class="btn btn-block btn-primary" href="<?php echo base_url(); ?>/CFuncionario/FRegFuncionario">Nuevo</a>
                    </th>
                  </tr>
                </thead>
                <tbody id="resBusqueda">
                  <?php foreach ($lista_funcionarios as $Funcionario) {
-                  $ciFun = $Funcionario['ci_funcionario'];
+                  $idFun = $Funcionario['id_funcionario'];
                   ?>
                    <tr>
-                     <td><?php echo $Funcionario['ci_funcionario']; ?></td>
+                     <td class="table-success"><?php echo $Funcionario['ci_fun']; ?></td>
                      <td><?php echo $Funcionario['grado']; ?></td>
                      <td><?php echo $Funcionario['nombre'], ' ' . $Funcionario['ap_paterno'], ' ' . $Funcionario['ap_materno']; ?>
                      </td>
-                     <td><?php echo $Funcionario['cargo']; ?></td>
-                     <td><?php echo $Funcionario['id_oficina']; ?></td>
+                     <td><?php echo $Funcionario['unidad']; ?></td>
+                     <td><?php echo $Funcionario['oficina']; ?></td>
                      <td><?php echo $Funcionario['telefono']; ?></td>                     
                      <td>
                        <div class="btn-group">
-                         <button class="btn btn-info btn-circle" onclick="MVerFuncionario(<?php echo $ciFun; ?>);">
+                         <button class="btn btn-info btn-circle" onclick="MVerFuncionario(<?php echo $idFun; ?>);">
                            <i class="fas fa-eye"></i>
                          </button>
-                         <button class="btn btn-secondary btn-circle" onclick="MEditFuncionario(<?php echo $ciFun; ?>);">
+                         <button class="btn btn-secondary btn-circle" onclick="MEditFuncionario(<?php echo $idFun; ?>);">
                            <i class="fas fa-edit"></i>
                          </button>
-                         <button class="btn btn-danger btn-circle" onclick="MEliFuncionario(<?php echo $ciFun; ?>);">
+                         <button class="btn btn-danger btn-circle" onclick="MEliFuncionario(<?php echo $idFun; ?>);">
                            <i class="fas fa-trash"></i>
                          </button>
                        </div>

@@ -43,12 +43,12 @@
 
   <script>
     $(function() {
-      //PARA LA VISTA CASOS
-      $("#dataTableCasos").DataTable({
+      //PARA LA TABLA USUARIOS
+      $("#dataTableUsuarios").DataTable({
         "responsive": true,
         "lengthChange": false,
-        "autoWidth": false,
-        "buttons": ["copy", "excel", "pdf", "print", "colvis"],
+        "autoWidth": true,
+        "buttons": ["copy", "excel", "pdf", "print"],
         //Traducir subtitulos al español
         language: {
           "decimal": "",
@@ -70,14 +70,14 @@
             "previous": "Anterior",
           }
         }
-      }).buttons().container().appendTo('#dataTableCasos_wrapper .col-md-6:eq(0)');
+      }).buttons().container().appendTo('#dataTableUsuarios_wrapper .col-md-6:eq(0)');
 
-      //PARA LA VISTA ACTIVIDADES
-      $("#dataTableActividades").DataTable({
+      //PARA LA TABLA FUNCIONARIOS
+      $("#dataTableFuncionarios").DataTable({
         "responsive": true,
         "lengthChange": false,
-        "autoWidth": false,
-        "buttons": ["copy", "excel", "pdf", "print", "colvis"],
+        "autoWidth": true,
+        "buttons": ["copy", "excel", "pdf", "print"],
         //Traducir subtitulos al español
         language: {
           "decimal": "",
@@ -99,7 +99,7 @@
             "previous": "Anterior",
           }
         }
-      }).buttons().container().appendTo('#dataTableActividades_wrapper .col-md-6:eq(0)');
+      }).buttons().container().appendTo('#dataTableFuncionarios_wrapper .col-md-6:eq(0)');
 
       //PARA LA VISTA INFRACTOR
       $("#dataTableInfractor").DataTable({

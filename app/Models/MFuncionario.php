@@ -4,17 +4,19 @@ use CodeIgniter\Model;
 
 class MFuncionario extends Model{
     protected $table = 'funcionario';
-    protected $primaryKey = 'ci_funcionario';
+    protected $primaryKey = 'id_funcionario';
     protected $returnType = 'array';    
     protected $allowedFields = [
         'estado',
+        'unidad',
+        'ci_fun',
         'nro_escalafon',
         'grado',
         'nombre',
         'ap_paterno',
         'ap_materno',
         'telefono',
-        'cargo',
+        'oficina',
         'id_oficina',
         'id_user',
         
@@ -32,6 +34,12 @@ class MFuncionario extends Model{
             $this->orderBy('fecha_crea', 'ASC');
             $resultado=$this->findAll();
             return $resultado;        
+        }
+        public function info_funcionario($id_Funcionario){
+            $this->select('*');
+            $this->where('id_funcionario', $id_Funcionario);
+            $resultado=$this->first();
+            return $resultado;
         }
 
     }

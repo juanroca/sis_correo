@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-olive navbar-dark">
+<nav class="navbar navbar-expand navbar-info navbar-dark">
   <!-- Left navbar links -->
   <ul class="navbar-nav">    
     <li class="nav-item d-none d-sm-inline-block">

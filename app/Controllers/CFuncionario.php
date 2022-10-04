@@ -23,50 +23,47 @@ class CFuncionario extends BaseController
         $id_Funcionario=$this->request->uri->getSegment(3);      //http://localhost/unipol_proyectos/index.php/(0) CFuncionario/(1) DetalleFuncionario/(2)"+id(3)
         //enviando el id al modelo para hacer la consulta
         $Funcionario=array(
-            'Funcionario'=>$FuncionarioModel->info_Funcionario($id_Funcionario)
+            'Funcionario'=>$FuncionarioModel->info_funcionario($id_Funcionario)
         );
-        echo view('Funcionario/DetalleFuncionario',$Funcionario);
+        echo view('funcionario/DetalleFuncionario',$Funcionario);
     }
 
     function FRegFuncionario(){
         echo view('header');
         echo view('asideFuncionario');
-        echo view('/Funcionario/FRegistroFuncionario');
+        echo view('/funcionario/FRegistroFuncionario');
 		echo view('footer');
     }
 
     function RegistroFuncionario(){
-        $fechaActual=date('m-d-Y h:i:s');
+        $fechaActual=date('Y-m-d h:i:s');
         $FuncionarioModel=new MFuncionario();
         
-        $Funcionario=trim($_POST['login']);
-        $password=password_hash(trim($_POST['password']),PASSWORD_DEFAULT);
-        $rol=strtoupper(trim($_POST['rol']));
+        $ci=strtoupper(trim($_POST['ci_fun']));
+        $unidad=strtoupper(trim($_POST['unidad']));
         $grado=trim($_POST['grado']);
         $nombres=strtoupper(trim($_POST['nombres']));
         $apPaterno=strtoupper(trim($_POST['apPaterno']));
         $apMaterno=strtoupper(trim($_POST['apMaterno']));    
-        $ci=trim($_POST['ci']);
+        $escalafon=strtoupper(trim($_POST['escalafon']));
         $telefFuncionario=trim($_POST['telefono']);
-        $unidad=strtoupper(trim($_POST['unidad']));
+        $oficina=strtoupper(trim($_POST['oficina']));
                 
         $data=array(  
-            'estado' => 'ACTIVO',          
-            
-            'grado_usu'=>$grado,
-            'nombres_usu'=>$nombres,
-            'paterno_usu'=>$apPaterno,
-            'materno_usu'=>$apMaterno,
-            'ci_usu'=>$ci,
-            'telefono_usu'=>$telefFuncionario,
-            'unidad_usu'=>$unidad,
+            'estado' => 'ACTIVO', 
+            'ci_fun'=>$ci,         
+            'unidad' => $unidad,
+            'grado'=>$grado,
+            'nombre'=>$nombres,
+            'ap_paterno'=>$apPaterno,
+            'ap_materno'=>$apMaterno,
+            'nro_escalafon'=>$escalafon,
+            'telefono'=>$telefFuncionario,
+            'oficina'=>$oficina,
 
-            'login_usu'=>$Funcionario,
-            'password'=>$password,
-            'rol_usu'=>$rol,
-
-            'crea_usu'=> session('Funcionario'),
+            'crea_fun'=>SESSION('usuario'),
             'fecha_crea'=>$fechaActual,
+                       
             /*'edit_usu'=>$editor,
             'fecha_edit_usu'=>$fechaActual,*/            
         );
@@ -77,59 +74,62 @@ class CFuncionario extends BaseController
         $FuncionarioModel=new MFuncionario();
         $id_Funcionario=$this->request->uri->getSegment(3);
         $Funcionario=array(
-            'Funcionario'=>$FuncionarioModel->info_Funcionario($id_Funcionario)
+            'Funcionario'=>$FuncionarioModel->info_funcionario($id_Funcionario)
         );
-        echo view('Funcionario/FEliminarFuncionario', $Funcionario);
+        echo view('funcionario/FEliminarFuncionario', $Funcionario);
     }
 
     function EliminarFuncionario(){
         $FuncionarioModel=new MFuncionario();
         $id_Funcionario=$this->request->uri->getSegment(3);
-        $fechaActual = date('Y-m-d');
+        $fechaActual = date('Y-m-d h:i:s');
 
         $data = array(
             'estado' => 'ELIMINADO',                 //entre '' va el nombre del campo de la Base de Datos
-            'elimina_usu' => session('Funcionario'),
+            'elimina_usu' => session('usuario'),
             'fecha_eli' => $fechaActual,
         );
         $FuncionarioModel->update($id_Funcionario, $data); //update actualiza los datos del id_tic
     }
 
-    function FEdiUsaurio(){
+    function FEdiFuncionario(){
         $FuncionarioModel=new MFuncionario();
         $id_Funcionario=$this->request->uri->getSegment(3);
-        $Funcionario=array('Funcionario'=>$FuncionarioModel->info_Funcionario($id_Funcionario));
+        $Funcionario=array('Funcionario'=>$FuncionarioModel->info_funcionario($id_Funcionario));
         echo view('Funcionario/FEdicionFuncionario', $Funcionario);
     }
 
     function EdicionFuncionario(){
-        $fechaActual=date('m-d-Y h:i:s');
+        $fechaActual=date('Y-m-d h:i:s');
         $FuncionarioModel=new MFuncionario();
         $id_Funcionario=$this->request->uri->getSegment(3);
 
-        $password=password_hash(trim($_POST['password']),PASSWORD_DEFAULT);     
-        $rol=strtoupper(trim($_POST['rol']));
+        $ci=strtoupper(trim($_POST['ci_fun']));
+        $unidad=strtoupper(trim($_POST['unidad']));
         $grado=trim($_POST['grado']);
         $nombres=strtoupper(trim($_POST['nombres']));
         $apPaterno=strtoupper(trim($_POST['apPaterno']));
         $apMaterno=strtoupper(trim($_POST['apMaterno']));    
-        $ci=trim($_POST['ci']);
+        $escalafon=strtoupper(trim($_POST['escalafon']));
         $telefFuncionario=trim($_POST['telefono']);
-        $unidad=strtoupper(trim($_POST['unidad']));
+        $oficina=strtoupper(trim($_POST['oficina']));
         
-        $data=array(
-            'password'=>$password,
-            'rol_usu'=>$rol,
-            'grado_usu'=>$grado,
-            'nombres_usu'=>$nombres,
-            'paterno_usu'=>$apPaterno,
-            'materno_usu'=>$apMaterno,
-            'ci_usu'=>$ci,
-            'telefono_usu'=>$telefFuncionario,
-            'unidad_usu'=>$unidad,
+        $data=array( 
+            'ci_fun'=>$ci,         
+            'unidad' => $unidad,
+            'grado'=>$grado,
+            'nombre'=>$nombres,
+            'ap_paterno'=>$apPaterno,
+            'ap_materno'=>$apMaterno,
+            'nro_escalafon'=>$escalafon,
+            'telefono'=>$telefFuncionario,
+            'oficina'=>$oficina,
 
-            'edit_usu'=> session('Funcionario'),
-            'fecha_edit_usu'=>$fechaActual, 
+            //'crea_fun'=>SESSION('usuario'),
+            //'fecha_crea'=>$fechaActual,
+                       
+            'edit_fun'=>SESSION('usuario'),
+            'fecha_edit'=>$fechaActual, 
         );
         $FuncionarioModel->update($id_Funcionario, $data);
     }
