@@ -4,11 +4,11 @@ use CodeIgniter\Model;
 
 class MUsuario extends Model{
     protected $table = 'usuario';
-    protected $primaryKey = 'id_user';
+    protected $primaryKey = 'id_usuario';
     protected $returnType = 'array';    
     protected $allowedFields = [
         'estado',
-        'ci_usu',
+        'ci_fun',
         'login_usu',
         'password',
         'rol_usu',
@@ -24,9 +24,18 @@ class MUsuario extends Model{
         public function lista_usuarios(){
             $this->select('*');
             $this->where('estado', 'ACTIVO');
-            $this->orderBy('id_user', 'ASC');
+            $this->orderBy('id_usuario', 'ASC');
             $resultado=$this->findAll();
             return $resultado;        
+        }
+
+        public function lista_estructurada_consulta(){
+            $this-> select('usuario.id_usuario, usuario.login_usu, usuario.rol_usu, funcionario.grado, funcionario.nombre, funcionario.ap_paterno, funcionario.ap_materno, funcionario.ci_fun, oficina.oficina');
+            $this->join('funcionario', 'funcionario.id_funcionario=usuario.id_funcionario');
+            $this->join('oficina', 'oficina.id_oficina=usuario.id_oficina');
+            $resultado=$this->findAll();
+            //var_dump($resultado);
+            return $resultado;
         }
 
         public function info_usuario($idUsuario){

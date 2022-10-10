@@ -12,7 +12,7 @@ class CFuncionario extends BaseController
         $FuncionarioModel=new MFuncionario();
         $Funcionario=array('lista_funcionarios'=>$FuncionarioModel->lista_funcionarios());
         echo view('header');
-        echo view('asideFuncionario');
+        echo view('asideAdmin');
         echo view('/funcionario/VFuncionario',$Funcionario);
 		echo view('footer');
     }
@@ -30,7 +30,7 @@ class CFuncionario extends BaseController
 
     function FRegFuncionario(){
         echo view('header');
-        echo view('asideFuncionario');
+        echo view('asideAdmin');
         echo view('/funcionario/FRegistroFuncionario');
 		echo view('footer');
     }

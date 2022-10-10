@@ -1,19 +1,22 @@
  <script src="<?php echo base_url(); ?>/assest/js/funcionario.js"></script>
-<!-- Content Wrapper. Contains page content -->
-<div class="container-fluid">
-   <!-- Content Header (Page header) -->
-   <section class="content-header">
-     <div class="container-fluid">
+<!-- Content PAGE BODY (Page header) -->
+<div class="content-wrapper" style="min-height: 475px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">LISTA DE FUNCIONARIOS REGISTRADOS</h1>
+          </div><!-- /.col -->          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-PAGE BODY -->
 
-     </div><!-- /.container-fluid -->
-   </section>
 
    <!-- Main content -->
    <section class="content">
-     <div class="card">
-      <div class="card-header card-header text-white bg-success mb-3">
-         <h3 class="card-title">FUNCIONARIOS REGISTRADOS</h3>
-      </div>
+     <div class="card">      
        <!-- /.card-header -->
        <div class="card-body p-0">
          <table id="dataTableFuncionarios" class="table" role="grid" aria-describedby="example2_info">

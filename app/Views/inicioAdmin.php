@@ -1,11 +1,17 @@
 <!-- Content Header (Page header) -->
-<div class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-1">
-      <div class="col-sm-12">
-        <h1 class="m-0">BIENVENIDOS AL SISTEMA DE SEGUIMIENTO DE CORRESPONDENCIA</h1>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
+<div class="content-wrapper" style="min-height: 475px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">BIENVENIDO AL SISTEMA DE ADMINISTRACIÓN DE CORREO</h1>
+          </div><!-- /.col -->          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
 
     <div class="margin container-fluid">
       <div class="btn-group">

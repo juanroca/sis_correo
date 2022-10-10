@@ -51,7 +51,7 @@ class CAcceso extends BaseController
 			$session->set($dato);
 			if ($consulta['rol_usu']=='ADMINISTRADOR'){
 				echo view('header');
-				//echo view('asideAdmin');
+				echo view('asideAdmin');
 				echo view('inicioAdmin');
 				echo view('footer');
 				

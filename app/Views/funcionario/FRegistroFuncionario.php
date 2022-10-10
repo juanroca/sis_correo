@@ -4,10 +4,19 @@ $fechaActual = date('m-d-Y h:i:s');
 ?>
 <script src="<?php echo base_url(); ?>/assest/js/funcionario.js"></script>
 
-<div class="container-fluid" style="background-color:#EFF9F7" > 
-  <div class="content-header">
-  <h4>FORMULARIO PARA REGISTRO DE FUNCIONARIOS</h4>
-  </div>
+<!-- Content PAGE BODY (Page header) -->
+<div class="content-wrapper" style="min-height: 475px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">FORMULARIO DE REGISTRO DE FUNCIONARIO</h1>
+          </div><!-- /.col -->          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-PAGE BODY -->
 
   <!-- form start -->
   <form action="RegFuncionario" id="FRegFuncionario" methot="POST" enctype="multipart/form-data" onsubmit="return validar();">

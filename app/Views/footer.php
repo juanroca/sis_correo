@@ -101,12 +101,16 @@
         }
       }).buttons().container().appendTo('#dataTableFuncionarios_wrapper .col-md-6:eq(0)');
 
-      //PARA LA VISTA INFRACTOR
-      $("#dataTableInfractor").DataTable({
-        "responsive": true,
+      //PARA LA VISTA DOCUMENTOS
+      $("#dataTableDoc").DataTable({
+        "paging": true,
         "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
         "autoWidth": false,
-        "buttons": ["copy", "excel", "pdf", "print", "colvis"],
+        "responsive": true,
+        //"buttons": ["copy", "excel", "pdf", "print"],
         //Traducir subtitulos al español
         language: {
           "decimal": "",
@@ -128,7 +132,7 @@
             "previous": "Anterior",
           }
         }
-      }).buttons().container().appendTo('#dataTableInfractor_wrapper .col-md-6:eq(0)');
+      }).buttons().container().appendTo('#dataTableDoc_wrapper .col-md-6:eq(0)');
       /*
       //PARA LA VISTA ..............
       $("#dataTable...").DataTable({

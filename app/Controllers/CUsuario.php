@@ -10,9 +10,11 @@ class CUsuario extends BaseController
 {
     public function index(){
         $usuarioModel=new MUsuario();
-        $usuario=array('lista_usuarios'=>$usuarioModel->lista_usuarios());
+        //$usuario=array('lista_usuarios'=>$usuarioModel->lista_usuarios());
+        $usuario=array('lista_usuarios'=>$usuarioModel->lista_estructurada_consulta());
+        //var_dump($usuario);
         echo view('header');
-        echo view('asideUsuario');
+        echo view('asideAdmin');
         echo view('/usuario/VUsuario',$usuario);
 		echo view('footer');
     }

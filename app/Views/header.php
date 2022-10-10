@@ -31,4 +31,4 @@
   <link rel="stylesheet" href="<?php echo base_url();?>/assest/plugins/summernote/summernote-bs4.min.css">
   
 </head>
-<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse" style="background-color:#CCD1D1">
+
