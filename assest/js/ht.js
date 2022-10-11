@@ -27,20 +27,20 @@ function MVerHt(id) {
 }
 
 //funcion abrir el Modal Registro Ht
-/*function MNuevoHt(){
+function MNuevoHt(id_doc){
     $('#modal-lg').modal('show');
     var obj="";
     $.ajax(
         {
             type:"POST",
-            url:host+"index.php/CHt/FRegHt",
+            url:host+"index.php/CHt/FRegHt/"+id_doc,
             data:obj,
             success:function(data){
                 $("#formulario-lg").html(data);
             }
         }
     )
-}*/
+}
 //Registro Usurio nuevo
 function RegHt() {
     var formData = new FormData($('#FRegHt')[0]);

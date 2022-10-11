@@ -1,29 +1,23 @@
  <script src="<?php echo base_url(); ?>/assest/js/usuario.js"></script>
-<!-- Content PAGE BODY (Page header) -->
-<div class="content-wrapper" style="min-height: 475px;">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">LISTA DE USUARIOS CON ACCESO</h1>
-          </div><!-- /.col -->          
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-PAGE BODY -->
+ <!-- Content PAGE BODY (Page header) -->
+ <div class="content-wrapper" style="min-height: 475px;">
+   <!-- Content Header (Page header) -->
+   <div class="p-3 mb-2 bg-warning text-white" style="--bs-bg-opacity: .5;">
+     <h1 class="text-center m-0">USUARIOS REGISTRADOS</h1>
+   </div>
+   <!-- /.content-PAGE BODY -->
 
    <!-- Main content -->
    <section class="content">
-     <div class="card">      
+     <div class="card">
        <!-- /.card-header -->
        <div class="card-body p-0">
          <table id="dataTableUsuarios" class="table" role="grid" aria-describedby="example2_info">
-           <thead class="table-info">
-             <tr>
+           <thead class="table-warning">
+             <tr class="table-warning">
                <th style="width: 10px">ID</th>
                <th>Login</th>
-               <th>Tipo de Rol</th> 
+               <th>Tipo de Rol</th>
                <th>Grado y Nombre Completo</th>
                <th>CI</th>
                <th>Oficina</th>
@@ -45,11 +39,11 @@
                 $ciUsu = $usuario['ci_fun'];
                 $oficina = $usuario['oficina'];
               ?>
-               <tr>
-                 <td><?php echo $idUsu; ?></td>
+               <tr>                 
+                 <td class="table-warning"><?php echo $idUsu; ?></td>
                  <td><?php echo $loginUsu; ?></td>
-                 <td><?php echo $rolUsu; ?></td>    
-                 <td><?php echo $grado,' ',$nombre, ' ',$paterno,' ',$materno; ?></td>             
+                 <td><?php echo $rolUsu; ?></td>
+                 <td><?php echo $grado, ' ', $nombre, ' ', $paterno, ' ', $materno; ?></td>
                  <td><?php echo $ciUsu; ?></td>
                  <td><?php echo $oficina; ?></td>
                  <td>

@@ -88,7 +88,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="FNuevoPaciente" class="nav-link">
+                  <a href="<?php echo base_url(); ?>/CHt" class="nav-link">
                     <i class="far fa-circle nav-icon"> </i>
                     <p>Documentos Oficiados</p>
                   </a>

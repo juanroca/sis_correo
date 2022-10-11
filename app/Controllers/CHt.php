@@ -1,43 +1,43 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\MDocumento;
+use App\Models\MHt;
+//use App\Models\MDocumento;
 
 date_default_timezone_set('America/La_Paz');
 $fechaHoy=date('m-d-Y h:i:s');//obtener la fecha del sistema
 
-class CDocumento extends BaseController
+class CHt extends BaseController
 {
     public function index(){
-        $DocumentoModel=new MDocumento();
-        $documento=array('lista_documentos'=>$DocumentoModel->lista_documentos());
+        $HtModel=new MHt();
+        $ht=array('lista_hts'=>$HtModel->lista_hts());
         echo view('header');
         echo view('asideAdmin');
-        echo view('/documento/Vdocumento',$documento);
+        echo view('/ht/VHt',$ht);
 		echo view('footer');
     }
 
-    public function DetDocumento(){
-        $DocumentoModel=new MDocumento();
+    public function Detht(){
+        $HtModel=new MHt();
         //recuperar la parte del id de la URL
-        $id_documento=$this->request->uri->getSegment(3);      //http://localhost/unipol_proyectos/index.php/(0) Cdocumento/(1) Detalledocumento/(2)"+id(3)
+        $id_ht=$this->request->uri->getSegment(3);      //http://localhost/unipol_proyectos/index.php/(0) Cht/(1) Detalleht/(2)"+id(3)
         //enviando el id al modelo para hacer la consulta
-        $documento=array(
-            'documento'=>$DocumentoModel->info_documento($id_documento)
+        $ht=array(
+            'ht'=>$HtModel->info_ht($id_ht)
         );
-        echo view('documento/Detalledocumento',$documento);
+        echo view('ht/DetalleHt',$ht);
     }
 
-    function FRegDocumento(){
+    function FRegHt(){
         echo view('header');
-        echo view('asideAdmin');
-        echo view('/documento/FRegistrodocumento');
+        echo view('/ht/FRegistroHt');
 		echo view('footer');
     }
 
-    function RegistroDocumento(){
+    function RegistroHt(){
         $fechaActual=date('Y-m-d h:i:s');
-        $DocumentoModel=new MDocumento();
+        $HtModel=new MHt();
         
         $fechaRecep=trim($_POST['fecha_recep']);
         $tipoDoc=trim($_POST['tipo_doc']);
@@ -62,21 +62,21 @@ class CDocumento extends BaseController
             'crea_doc'=>SESSION('usuario'),            
            
         );
-        $DocumentoModel->insert($data);
+        $HtModel->insert($data);
     }
 
-    function FElidocumento(){        
-        $DocumentoModel=new MDocumento();
-        $id_documento=$this->request->uri->getSegment(3);
-        $documento=array(
-            'documento'=>$DocumentoModel->info_documento($id_documento)
+    function FEliht(){        
+        $HtModel=new MHt();
+        $id_ht=$this->request->uri->getSegment(3);
+        $ht=array(
+            'ht'=>$HtModel->info_ht($id_ht)
         );
-        echo view('documento/FEliminardocumento', $documento);
+        echo view('ht/FEliminarht', $ht);
     }
 
-    function Eliminardocumento(){
-        $DocumentoModel=new MDocumento();
-        $id_documento=$this->request->uri->getSegment(3);
+    function Eliminarht(){
+        $HtModel=new MHt();
+        $id_ht=$this->request->uri->getSegment(3);
         $fechaActual = date('Y-m-d h:i:s');
 
         $data = array(
@@ -84,20 +84,20 @@ class CDocumento extends BaseController
             'eli_doc' => session('usuario'),
             'fecha_eli' => $fechaActual,
         );
-        $DocumentoModel->update($id_documento, $data); //update actualiza los datos del id_tic
+        $HtModel->update($id_ht, $data); //update actualiza los datos del id_tic
     }
 
-    function FEdiDocumento(){
-        $DocumentoModel=new MDocumento();
-        $id_documento=$this->request->uri->getSegment(3);
-        $documento=array('documento'=>$DocumentoModel->info_documento($id_documento));
-        echo view('documento/FEdicionDocumento', $documento);
+    function FEdiht(){
+        $HtModel=new MHt();
+        $id_ht=$this->request->uri->getSegment(3);
+        $ht=array('ht'=>$HtModel->info_ht($id_ht));
+        echo view('ht/FEdicionht', $ht);
     }
 
-    function Ediciondocumento(){
+    function Edicionht(){
         $fechaActual=date('Y-m-d h:i:s');
-        $DocumentoModel=new MDocumento();
-        $id_documento=$this->request->uri->getSegment(3);
+        $HtModel=new MHt();
+        $id_ht=$this->request->uri->getSegment(3);
 
         $fechaRecep=trim($_POST['fecha_recep']);
         $tipoDoc=trim($_POST['tipo_doc']);
@@ -122,6 +122,6 @@ class CDocumento extends BaseController
             'edit_doc'=>SESSION('usuario'),
             'fecha_edit'=>$fechaActual, 
         );
-        $DocumentoModel->update($id_documento, $data);
+        $HtModel->update($id_ht, $data);
     }
 }

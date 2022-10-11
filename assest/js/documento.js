@@ -41,7 +41,7 @@ function MVerDocumento(id) {
         }
     )
 }*/
-//Registro Usurio nuevo
+//Registro DOCUMENTO nuevo
 function RegDocumento() {
     var formData = new FormData($('#FRegDocumento')[0]);
     $.ajax(
@@ -91,7 +91,7 @@ function EliDocumento(id) {
             url: host + "index.php/CDocumento/EliminarDocumento/" + id,
             data: obj,
             success: function (data) {
-                alert('Documento ELIMINADO CORRECTAMENTE..!!');
+                alert('DOCUMENTO ELIMINADO CORRECTAMENTE..!!');
                 setTimeout(
                     function () {
                         $('#modal-df').modal('hide');
@@ -134,7 +134,7 @@ function EditDocumento(id) {
             contentType: false,
             processData: false,
             success: function () {
-                alert('DATOS DEL Documento ACTUALIZADOS CORRECTAMENTE...!!!');
+                alert('DATOS DEL DOCUMENTO ACTUALIZADOS CORRECTAMENTE...!!!');
                 setTimeout(
                     function () {
                         $('#modal-lg').modal('hide');
@@ -148,20 +148,18 @@ function EditDocumento(id) {
         }
     )
 }
-//Función Buscar Documento
-function BuscarDocumento() {
-    var txt_bus = $("#Documento_search").val();
-    var obj = {
-        txt_bus: txt_bus
-    };
-    $.ajax({
-        type: "POST",
-        url: host + "index.php/CDocumento/BusDocumento",
-        data: obj,
-        success: function (data) {
-            $('#resBusqueda').html(data);
-            //console.log(data);
+//Modal para formulario de OFICIAR DOCUMENTO
+function MOficiarDoc(id) {
+    $('#modal-lg').modal('show');
+    var obj = "";
+    $.ajax(
+        {
+            type: "POST",
+            url: host + "index.php/CDocumento/FEdiDocumento/" + id,
+            data: obj,
+            success: function (data) {
+                $("#formulario-lg").html(data);
+            }
         }
-    })
-
+    )
 }
