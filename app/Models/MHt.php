@@ -8,11 +8,14 @@ class MHt extends Model{
     protected $returnType = 'array';    
     protected $allowedFields = [
         'estado',
+        'id_documento',
         'fecha',
-        'destinatario',
+        'oficina',
+        'otra_ofi',
         'instruccion',
+        'otra_inst',
         'obs_ht',
-        'situa_ht',
+        'situa_ht',        
                         
         'crea_ht',
         'fecha_crea',
@@ -33,6 +36,15 @@ class MHt extends Model{
             $this->select('*');
             $this->where('id_ht', $id_ht);
             $resultado=$this->first();
+            return $resultado;
+        }
+
+        public function lista_VHt(){
+            $this-> select('usuario.id_usuario, usuario.login_usu, usuario.rol_usu, funcionario.grado, funcionario.nombre, funcionario.ap_paterno, funcionario.ap_materno, funcionario.ci_fun, oficina.oficina');
+            $this->join('funcionario', 'funcionario.id_funcionario=usuario.id_funcionario');
+            $this->join('oficina', 'oficina.id_oficina=usuario.id_oficina');
+            $resultado=$this->findAll();
+            //var_dump($resultado);
             return $resultado;
         }
 

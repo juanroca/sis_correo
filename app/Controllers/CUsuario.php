@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\MUsuario;
+use App\Models\MFuncionario;
 
 date_default_timezone_set('America/La_Paz');
 $fechaHoy=date('m-d-Y h:i:s');//obtener la fecha del sistema

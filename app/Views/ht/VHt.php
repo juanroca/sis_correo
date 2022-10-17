@@ -14,9 +14,10 @@
        <div class="card-body p-0">
          <table id="dataTableDoc" class="table" role="grid" aria-describedby="example2_info">
            <thead class="table-info">
-             <tr class="table-info">
+             <tr class="table-info">              
                <th style="width: 10px">HT</th>
-               <th>De fecha</th>
+               <th>Fecha</th>
+               <th>Documento</th>
                <th>Destinatario</th>
                <th>Instrucción</th>
                <th>Situación</th>
@@ -29,6 +30,7 @@
              <?php foreach ($lista_hts as $ht) {
                 $idHt = $ht['id_ht'];
                 $fechaOficiado = $ht['fecha'];
+
                 $destino = $ht['destinatario'];
                 $instruc = $ht['instruccion'];
                 $situacion = $ht['situa'];
@@ -37,6 +39,7 @@
                <tr>
                  <td class="table-info"><?php echo $idHt; ?></td>
                  <td><?php echo $fechaOficiado; ?></td>
+                 <td><?php echo $destino; ?></td>
                  <td><?php echo $destino; ?></td>
                  <td><?php echo $instruc; ?></td>
                  <td><?php echo $situacion; ?></td>

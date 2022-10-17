@@ -8,10 +8,12 @@ class MUsuario extends Model{
     protected $returnType = 'array';    
     protected $allowedFields = [
         'estado',
+        'id_funcionario',
         'ci_fun',
         'login_usu',
         'password',
         'rol_usu',
+        'id_oficina',
 
         'crea_usu',
         'fecha_crea',

@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\MDocumento;
+use App\Models\MListaEstado;
+
 
 date_default_timezone_set('America/La_Paz');
 $fechaHoy=date('m-d-Y h:i:s');//obtener la fecha del sistema
@@ -31,7 +33,7 @@ class CDocumento extends BaseController
     function FRegDocumento(){
         echo view('header');
         echo view('asideAdmin');
-        echo view('/documento/FRegistrodocumento');
+        echo view('/documento/FRegistroDocumento');
 		echo view('footer');
     }
 

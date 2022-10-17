@@ -9,7 +9,6 @@ class MDocumento extends Model{
     protected $allowedFields = [
         'estado',
         'fecha_recibido',
-        'num_ht',
         'tipo',
         'origen',
         'referencia',
@@ -17,6 +16,8 @@ class MDocumento extends Model{
         'cant_pag',
         'obs',
         'situa',
+        'id_ht',
+        'id_estado',
                 
         'crea_doc',
         'fecha_crea',

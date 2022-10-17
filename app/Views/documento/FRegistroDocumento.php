@@ -1,6 +1,8 @@
 <?php
 date_default_timezone_set('America/La_Paz');
 $fechaActual = date('Y-m-d h:i:s');
+include 'conexion.php';
+$query = mysqli_query($mysqli, "SELECT id_est, list_estado FROM lista_estado");
 ?>
 <script src="<?php echo base_url(); ?>/assest/js/documento.js"></script>
 
@@ -28,7 +30,7 @@ $fechaActual = date('Y-m-d h:i:s');
           <div class="row">
             <div class="form-group col-sm-3">
               <label>Fecha de Recepcion</label>
-              <input type="datetime-local" class="form-control form-control-sm" id="fecha_recep" name="fecha_recep" value="<?php echo $fechaActual; ?>" max="<?php echo $fechaActual; ?>"/>
+              <input type="datetime-local" class="form-control form-control-sm" id="fecha_recep" name="fecha_recep" value="<?php echo $fechaActual; ?>" max="<?php echo $fechaActual; ?>" />
             </div>
             <div class="form-group col-sm-4">
               <label>Tipo de Documento</label>
@@ -68,12 +70,17 @@ $fechaActual = date('Y-m-d h:i:s');
             <div class="form-group col-sm-2">
               <label>Situación</label>
               <select class="form-control form-control-sm" name="situa_doc" id="situa_doc" required>
-                <option value="RECIBIDO" selected>RECIBIDO</option>
+                <?php while ($datos = mysqli_fetch_array($query)) {
+                ?>
+                  <option value="<?php echo $datos['1'] ?>"> <?php echo $datos['1'] ?> </option>
+                <?php }
+                ?>
+                <!-- <option value="RECIBIDO" selected>RECIBIDO</option>
                 <option value="ARCHIVADO">ARCHIVADO</option>
                 <option value="OFICIADO">OFICIADO</option>
                 <option value="RESPONDIDO">RESPONDIDO</option>
                 <option value="DEVULETO">DEVUELTO</option>
-                <option value="OTRO">OTRO</option>
+                <option value="OTRO">OTRO</option> -->
               </select>
             </div>
           </div>
