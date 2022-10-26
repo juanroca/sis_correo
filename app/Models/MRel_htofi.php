@@ -2,27 +2,15 @@
 namespace App\Models;
 use CodeIgniter\Model;
 
-class MHt extends Model{
-    protected $table = 'hoja_ruta';
-    protected $primaryKey = 'id_ht';
+class MRel_htofi extends Model{
+    protected $table = 'relacion_htofi';
+    protected $primaryKey = 'id_relacionhtofi';
     protected $returnType = 'array';    
     protected $allowedFields = [
-        'estado',
-        'id_documento',
-        'situa_ht',
-        'fecha_ht',
-        'oficina',
-        'otra_ofi',
-        'instruccion',
-        'otra_inst',
-        'obs_ht',                
-                        
-        'crea_ht',
-        'fecha_crea',
-        'edit_ht',
-        'fecha_edit',
-        'eli_ht',
-        'fecha_eli',
+        'id_ht',
+        'id_oficina',
+        'fecha',
+        'autor',
         ];
         
         public function lista_hts(){

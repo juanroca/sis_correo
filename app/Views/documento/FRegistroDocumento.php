@@ -55,7 +55,7 @@ $query = mysqli_query($mysqli, "SELECT id_est, list_estado FROM lista_estado");
             </div>
             <div class="form-group col-sm-3">
               <label>Fecha del Documento</label>
-              <input type="date" class="form-control form-control-sm" id="fecha_doc" name="fech_doc">
+              <input type="date" class="form-control form-control-sm" id="fecha_doc" name="fecha_doc" value="<?php echo $fechaActual; ?>">
             </div>
             <div class="form-group col-sm-2">
               <label>Cant. Páginas</label>

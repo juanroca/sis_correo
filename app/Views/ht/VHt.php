@@ -29,19 +29,21 @@
            <tbody id="resBusqueda">
              <?php foreach ($lista_hts as $ht) {
                 $idHt = $ht['id_ht'];
-                $fechaOficiado = $ht['fecha'];
-
-                $destino = $ht['destinatario'];
+                $fechaOficiado = $ht['fecha_ht'];
+                $idDoc = $ht['id_documento'];
+                $oficina = $ht['oficina'];
+                $otraOfi= $ht['otra_ofi'];
                 $instruc = $ht['instruccion'];
-                $situacion = $ht['situa'];
+                $otraInst= $ht['otra_inst'];
+                $situacion = $ht['situa_ht'];
 
               ?>
                <tr>
                  <td class="table-info"><?php echo $idHt; ?></td>
                  <td><?php echo $fechaOficiado; ?></td>
-                 <td><?php echo $destino; ?></td>
-                 <td><?php echo $destino; ?></td>
-                 <td><?php echo $instruc; ?></td>
+                 <td><?php echo $idDoc; ?></td>
+                 <td><?php echo $oficina. ' / '. $otraOfi; ?></td>
+                 <td><?php echo $instruc. ' / '. $otraInst; ?></td>
                  <td><?php echo $situacion; ?></td>
                  <td>
                    <div class="btn-group">

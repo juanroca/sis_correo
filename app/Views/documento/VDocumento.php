@@ -52,8 +52,7 @@
                      <button class="btn btn-secondary btn-circle" onclick="MEditDocumento(<?php echo $idDoc; ?>);">
                        <i class="fas fa-edit"></i>
                      </button>     
-                     <script src="<?php echo base_url(); ?>/assest/js/ht.js"></script>                
-                     <a class="btn-lg btn-warning btn-circle" onclick="MNuevoHt(<?php echo $idDoc; ?>);">
+                     <a class="btn-lg btn-warning btn-circle" onclick="<?php echo base_url(); ?>/CHt/FRegHtID">
                        <i class="fas fa-file-export"></i></a>
                      </button>
                      <button class="btn btn-danger btn-circle" onclick="MEliDocumento(<?php echo $idDoc; ?>);">

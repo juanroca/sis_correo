@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+
 use App\Models\MHt;
+use App\Models\MRel_htofi;
 //use App\Models\MDocumento;
 
 date_default_timezone_set('America/La_Paz');
@@ -40,13 +42,23 @@ class CHt extends BaseController
         echo view('footer');
     }
 
+    function FRegHtID()
+    {
+        echo view('header');
+        echo view('asideAdmin');
+        echo view('/ht/FRegistroHt');
+        echo view('footer');
+    }
+
     function RegistroHt()
     {
         $fechaActual = date('Y-m-d h:i:s');
         $HtModel = new MHt();
+        //$cnx =mysqli_connect('localhost', 'root', '', 'sis_correo');
 
         $fechaHt = trim($_POST['fecha_ht']);
         $idDoc = strtoupper(trim($_POST['id_doc']));
+        $situaHt = strtoupper(trim($_POST['situa_ht']));
         
         /*CAPTURAR VALORES DE CHECKBOX */        
         $oficinas = '';
@@ -60,25 +72,37 @@ class CHt extends BaseController
 
         $otraOficina = strtoupper(trim($_POST['otraOfi']));
         $otraInstruccion = strtoupper(trim($_POST['otraInst']));
-        $situaHt = strtoupper(trim($_POST['situaHt']));
+        
         $obsHT = strtoupper(trim($_POST['obsHt']));
 
         $data = array(
             'estado' => 'ACTIVO',
             'id_documento' => $idDoc,
-            'fecha' => $fechaHt,
+            'fecha_ht' => $fechaHt,
             'oficina' => $oficinas,
             'otra_ofi' => $otraOficina,
             'instruccion' => $instrucciones,
             'otra_inst' => $otraInstruccion,    
             'obs_ht' => $obsHT,        
-            'situa_ht' => $situaHt,
-            
+            'situa_ht' => $situaHt,            
 
-            'crea_doc' => SESSION('usuario'),
-
+            'crea_ht' => SESSION('usuario'),
         );
-        $HtModel->insert($data);
+        $HtModel->insert($data);        
+        
+        //$id_ht_insertado = mysqli_insert_id($HtModel);
+
+        $MRelhoModel = new MRel_htofi();
+        foreach ($_POST['OfiOption'] as $idOficina){          
+            
+            $data2 = array(
+                'id_ht' => $id_ht_insertado,
+                'id_oficina' => $idOficina,
+
+                'autor'=> SESSION('usuario'),
+            );
+            $MRelhoModel->insert($data2);
+        }        
     }
 
     function FEliht()
